@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="./clearStyle.css" />
+    <link rel="stylesheet" href="./shuati/iconfont.css" />
+    <style>
+      body {
+        background: #fff;
+      }
+
+      .icon {
+        width: 1em;
+        height: 1em;
+        overflow: hidden;
+      }
+
+      .switch {
+        padding-left: 3vw;
+        line-height: 12vw;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+      }
+
+      .switch span {
+        font-size: 5vw;
+
+        padding: 2vw;
+        font-weight: bold;
+      }
+
+      .tupian {
+        width: 100%;
+      }
+
+      .tupian > div {
+        height: 4vw;
+        background: #00a0d8;
+      }
+
+      .tupian img {
+        width: 100%;
+        height: 15vw;
+      }
+
+      #fm > div {
+        height: 10vw;
+        line-height: 12vw;
+        display: flex;
+        align-items: center;
+        margin-top: 6vw;
+      }
+
+      #fm > div:nth-of-type(4) input {
+        border: none;
+        background-color: rgb(175 216 255);
+        height: 12vw;
+        width: 100%;
+        color: #70652b;
+        font-weight: bold;
+        border-radius: 6vw;
+        font-size: 3.2vw;
+      }
+
+      .input {
+        color: #000;
+        height: 0;
+        border: none;
+        border-bottom: 2px solid #e6e1e1;
+        padding: 5vw;
+        width: 80%;
+        outline: none;
+        font-size: 2.9vw;
+        margin-top: 5px;
+      }
+
+      .input::placeholder {
+        color: #aaa;
+        font-size: 1rem;
+      }
+
+      #verf {
+        width: 20vw;
+      }
+
+      .ver {
+        padding: 0 2vw;
+        margin: 2vw;
+        background-color: #a4a7c1;
+        border-radius: 3vw;
+      }
+
+      #fm > div:nth-of-type(4) {
+        padding: 4vw;
+      }
+
+      .lastInfo {
+        color: rgb(189, 189, 189);
+        font-weight: bold;
+      }
+
+      .lastInfo > span {
+        color: #00a1d6;
+        font-weight: bold;
+        font-size: 3vw;
+        letter-spacing: 0.5vw;
+      }
+
+      input:checked {
+        background: #fd3f31;
+      }
+
+      #fm > div:nth-of-type(5) {
+        font-size: 3vw;
+        line-height: 6vw;
+        height: 6vw;
+      }
+
+      #fm > div:nth-of-type(1) span:nth-of-type(1) {
+        color: #fff;
+        letter-spacing: 0.2vw;
+        font-size: 3.5vw;
+        font-weight: bold;
+        width: 20vw;
+      }
+
+      #fm > div:nth-of-type(1) {
+        margin-left: 4vw;
+      }
+
+      #fm > div:nth-of-type(2) span:nth-of-type(1) {
+        color: #fff;
+        letter-spacing: 0.2vw;
+        font-size: 3.5vw;
+        font-weight: bold;
+        width: 20vw;
+      }
+
+      #fm > div:nth-of-type(2) {
+        margin-left: 4vw;
+      }
+
+      #fm > div:nth-of-type(3) {
+        margin-left: 4vw;
+      }
+
+      #fm > div:nth-of-type(3) span:nth-of-type(1) {
+        letter-spacing: 0.2vw;
+        font-size: 3.5vw;
+        font-weight: bold;
+        width: 20vw;
+      }
+
+      #fm > div:nth-of-type(6) {
+        font-size: 3vw;
+
+        margin-left: 33vw;
+      }
+
+      form {
+        margin-bottom: 20vw;
+      }
+
+      .a {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      h2 {
+        margin-left: 1.5rem;
+      }
+    </style>
+    <title>BOSS直聘</title>
+  </head>
+  <body>
+    <div class="switch">
+      <h2>BOSS直聘</h2>
+    </div>
+    <div id="fm">
+      <div>
+        <input
+          type="text"
+          name="user"
+          id="user"
+          class="input"
+          placeholder="手机号/BOSS/邮箱"
+        />
+      </div>
+      <div>
+        <input
+          type="password"
+          name="pwd"
+          id="pwd"
+          class="input"
+          placeholder="密码"
+        />
+      </div>
+      <div></div>
+      <div>
+        <input type="submit" value="确认登录" id="sub" />
+      </div>
+    </div>
+
+    <div class="a">
+      <span>手机验证码登录</span>
+      <span>忘记密码？</span>
+    </div>
+
+    <script async>
+      //   获取dom元素
+      const sub = document.querySelector("#sub");
+      const user = document.querySelector("#user");
+      const password = document.querySelector("#pwd");
+      // 定义账号密码
+      const keyword = "123";
+      const pwd = "123";
+
+      sub.addEventListener("click", () => {
+        console.log(String(user.value) + password.value);
+        if (String(user.value) === keyword && String(password.value) === pwd) {
+          window.location.replace("./home.html");
+        } else {
+          window.alert("账号密码输入不正确！");
+        }
+      });
+    </script>
+  </body>
+</html>
